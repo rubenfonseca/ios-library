@@ -38,7 +38,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         UAProductDetailiPadViewController *c = [[UAProductDetailiPadViewController alloc]
-                                initWithNibName:@"UAProductDetailiPad" bundle:nil];
+          initWithNibName:@"modules/com.0x82.urbanairship/UAProductDetailiPad" bundle:nil];
         self.detailViewController = c;
         [c release];
     }

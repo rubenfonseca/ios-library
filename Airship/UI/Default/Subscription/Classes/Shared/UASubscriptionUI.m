@@ -65,12 +65,12 @@ SINGLETON_IMPLEMENTATION(UASubscriptionUI)
         return nil;
 	
     NSString *path = [[[NSBundle mainBundle] resourcePath]
-                      stringByAppendingPathComponent:@"UASubscriptionLocalization.bundle"];
+      stringByAppendingPathComponent:@"modules/com.0x82.urbanairship/UASubscriptionLocalization.bundle"];
 	
     self.localizationBundle = [NSBundle bundleWithPath:path];
     
 	UIViewController *controller = [[[UASubscriptionRootViewController alloc]
-                                     initWithNibName:@"UASubscriptionRootViewController"
+    initWithNibName:@"modules/com.0x82.urbanairship/UASubscriptionRootViewController"
                                      bundle:nil] autorelease];
     
 	UASubscriptionAlertHandler *alertHandler = [[UASubscriptionAlertHandler alloc] init];

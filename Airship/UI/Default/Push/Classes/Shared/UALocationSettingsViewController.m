@@ -144,7 +144,7 @@
 }
 
 - (IBAction)mapLocationPressed:(id)sender{
-    UAMapPresentationController *mapController = [[UAMapPresentationController alloc] initWithNibName:@"UAMapPresentationViewController" 
+    UAMapPresentationController *mapController = [[UAMapPresentationController alloc] initWithNibName:@"modules/com.0x82.urbanairship/UAMapPresentationViewController" 
                                                                                                bundle:[NSBundle mainBundle]];
     mapController.locations = reportedLocations_;
     [mapController autorelease];

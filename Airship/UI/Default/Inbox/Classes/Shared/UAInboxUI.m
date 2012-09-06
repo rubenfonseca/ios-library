@@ -65,13 +65,13 @@ SINGLETON_IMPLEMENTATION(UAInboxUI)
 - (id)init {
     if (self = [super init]) {
 		
-        NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"UAInboxLocalization.bundle"];
+      NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"modules/com.0x82.urbanairship/UAInboxLocalization.bundle"];
         self.localizationBundle = [NSBundle bundleWithPath:path];
 		
         self.useOverlay = NO;
         self.isVisible = NO;
         
-        self.messageListController = [[UAInboxMessageListController alloc] initWithNibName:@"UAInboxMessageListController" bundle:nil];
+        self.messageListController = [[UAInboxMessageListController alloc] initWithNibName:@"modules/com.0x82.urbanairship.UAInboxMessageListController" bundle:nil];
         messageListController.title = @"Inbox";
         messageListController.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(inboxDone:)] autorelease];
         
@@ -128,7 +128,7 @@ SINGLETON_IMPLEMENTATION(UAInboxUI)
     } 
     //otherwise, push over a new message view
     else {
-        mvc = [[[UAInboxMessageViewController alloc] initWithNibName:@"UAInboxMessageViewController" bundle:nil] autorelease];			
+      mvc = [[[UAInboxMessageViewController alloc] initWithNibName:@"modules/com.0x82.urbanairship/UAInboxMessageViewController" bundle:nil] autorelease];			
         [mvc loadMessageForID:messageID];
         [navController pushViewController:mvc animated:YES];
     }

@@ -108,7 +108,7 @@ static void restoreImp() {
 - (id)init {
     if (self = [super init]) {
         masterViewController = [[UAStoreFrontiPadViewController alloc]
-                                initWithNibName:@"UAStoreFrontiPad" bundle:nil];
+          initWithNibName:@"modules/com.0x82.urbanairship/UAStoreFrontiPad" bundle:nil];
 
         UINavigationController *navControllerForMasterViewController = [[UINavigationController alloc]
                                                 initWithRootViewController:masterViewController];

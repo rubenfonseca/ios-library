@@ -62,7 +62,7 @@ static BOOL runiPhoneTargetOniPad = NO;
 
     if (self = [super init]) {
         NSString* path = [[[NSBundle mainBundle] resourcePath]
-                          stringByAppendingPathComponent:@"UAStoreFrontLocalization.bundle"];
+          stringByAppendingPathComponent:@"modules/com.0x82.urbanairship/UAStoreFrontLocalization.bundle"];
 
         self.localizationBundle = [NSBundle bundleWithPath:path];
 
@@ -74,7 +74,7 @@ static BOOL runiPhoneTargetOniPad = NO;
         
         } else {
             productListViewController = [[UAStoreFrontViewController alloc]
-                                         initWithNibName:@"UAStoreFront" bundle:nil];
+              initWithNibName:@"modules/com.0x82.urbanairship/UAStoreFront" bundle:nil];
             
             rootViewController = [[UINavigationController alloc] initWithRootViewController:productListViewController];
         }

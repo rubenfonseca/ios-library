@@ -80,13 +80,13 @@ static BOOL runiPhoneTargetOniPad = NO;
 - (id)init {
     if (self = [super init]) {
 		
-        NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"UAInboxLocalization.bundle"];
+      NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"modules/com.0x82.urbanairship/UAInboxLocalization.bundle"];
         self.localizationBundle = [NSBundle bundleWithPath:path];
 		
         self.useOverlay = NO;
         self.isVisible = NO;
         
-        UAInboxMessageListController *mlc = [[[UAInboxMessageListController alloc] initWithNibName:@"UAInboxMessageListController" bundle:nil] autorelease];
+        UAInboxMessageListController *mlc = [[[UAInboxMessageListController alloc] initWithNibName:@"modules/com.0x82.urbanairship/UAInboxMessageListController" bundle:nil] autorelease];
         mlc.title = @"Inbox";
         mlc.navigationItem.leftBarButtonItem = 
             [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(inboxDone:)] autorelease];
@@ -170,7 +170,7 @@ static BOOL runiPhoneTargetOniPad = NO;
         } else {
 			
             [UAInboxNavUI shared].messageViewController = 
-                [[[UAInboxMessageViewController alloc] initWithNibName:@"UAInboxMessageViewController" bundle:nil] autorelease];			
+              [[[UAInboxMessageViewController alloc] initWithNibName:@"modules/com.0x82.urbanairship/UAInboxMessageViewController" bundle:nil] autorelease];			
             [[UAInboxNavUI shared].messageViewController loadMessageForID:messageID];
             [navController pushViewController:[UAInboxNavUI shared].messageViewController animated:YES];
         }

@@ -141,7 +141,7 @@
 - (void)loadSettingsView {
     if (settingsViewController == nil) {
         settingsViewController = [[UASubscriptionSettingsViewController alloc]
-                                  initWithNibName:@"UASubscriptionSettingsViewController"
+          initWithNibName:@"modules/com.0x82.urbanairship/UASubscriptionSettingsViewController"
                                   bundle:nil];
     }
     [self.navigationController pushViewController:settingsViewController animated:YES];

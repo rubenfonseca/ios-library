@@ -265,20 +265,20 @@ static NSUInteger locationRowCount = 1;
         if (indexPath.row == DeviceTokenSectionTokenCell) {
             if (!tokenViewController) {
                 tokenViewController = [[UAPushSettingsTokenViewController alloc]
-                                       initWithNibName:@"UAPushSettingsTokenView" bundle:nil];
+                  initWithNibName:@"modules/com.0x82.urbanairship/UAPushSettingsTokenView" bundle:nil];
             }
             [self.navigationController pushViewController:tokenViewController animated:YES];
         } else if (indexPath.row == DeviceTokenSectionAliasCell) {
             if (!aliasViewController) {
                 aliasViewController = [[UAPushSettingsAliasViewController alloc]
-                                       initWithNibName:@"UAPushSettingsAliasView" bundle:nil];
+                  initWithNibName:@"modules/com.0x82.urbanairship/UAPushSettingsAliasView" bundle:nil];
             }
             [self.navigationController pushViewController:aliasViewController animated:YES];
             
         } else if (indexPath.row == DeviceTokenSectionTagsCell) {
             if (!tagsViewController) {
                 tagsViewController = [[UAPushSettingsTagsViewController alloc] 
-                                      initWithNibName:@"UAPushSettingsTagsViewController" bundle:nil];
+                  initWithNibName:@"modules/com.0x82.urbanairship/UAPushSettingsTagsViewController" bundle:nil];
             }
             [self.navigationController pushViewController:tagsViewController animated:YES];
             
@@ -288,7 +288,7 @@ static NSUInteger locationRowCount = 1;
     } else if (indexPath.section == SectionHelp) {
         if (indexPath.row == HelpSectionSounds) {
             UAPushSettingsSoundsViewController *soundsViewController = [[[UAPushSettingsSoundsViewController alloc] 
-                                                                         initWithNibName:@"UAPushSettingsSoundsViewController" bundle:nil] autorelease];
+              initWithNibName:@"modules/com.0x82.urbanairship/UAPushSettingsSoundsViewController" bundle:nil] autorelease];
             [self.navigationController pushViewController:soundsViewController animated:YES];
         } else {
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -297,7 +297,7 @@ static NSUInteger locationRowCount = 1;
 
     } else if(indexPath.section == SectionLocation) {
         UALocationSettingsViewController* locationViewController = [[[UALocationSettingsViewController alloc] 
-                                                                     initWithNibName:@"UALocationSettingsViewController" 
+          initWithNibName:@"modules/com.0x82.urbanairship/UALocationSettingsViewController" 
                                                                      bundle:nil] autorelease];
         [self.navigationController pushViewController:locationViewController animated:YES];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];

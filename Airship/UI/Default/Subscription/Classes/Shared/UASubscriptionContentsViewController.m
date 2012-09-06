@@ -134,7 +134,7 @@ static NSString *CELL_UNIQ_ID = @"UASubscriptionContentCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (detailViewController == nil) {
         detailViewController = [[UASubscriptionContentDetailViewController alloc]
-                                initWithNibName:@"UASubscriptionContentDetailView"
+          initWithNibName:@"modules/com.0x82.urbanairship/UASubscriptionContentDetailView"
                                 bundle:nil];
     }
     //detailViewController.content = [contents objectAtIndex:indexPath.section];

@@ -115,7 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (detailViewController == nil) {
         detailViewController = [[UASubscriptionProductDetailViewController alloc]
-                                initWithNibName:@"UASubscriptionProductDetailView"
+          initWithNibName:@"modules/com.0x82.urbanairship/UASubscriptionProductDetailView"
                                 bundle:nil];
     }
     [((UASubscriptionProductDetailViewController *)detailViewController) setProduct:[self productAtIndexPath:indexPath]];
@@ -142,7 +142,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (detailViewController == nil) {
         detailViewController = [[UASubscriptionContentsViewController alloc]
-                                     initWithNibName:@"UASubscriptionContentsViewController"
+          initWithNibName:@"modules/com.0x82.urbanairship/UASubscriptionContentsViewController"
                                      bundle:nil];
     }
     ((UASubscriptionContentsViewController *)detailViewController).subscriptionKey = [[subscriptions objectAtIndex:indexPath.section] key];
