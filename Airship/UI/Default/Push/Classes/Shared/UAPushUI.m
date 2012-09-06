@@ -38,7 +38,7 @@ SINGLETON_IMPLEMENTATION(UAPushUI)
     if (self = [super init]) {
         
         NSString *path = [[[NSBundle mainBundle] resourcePath]
-                          stringByAppendingPathComponent:@"UAPushLocalization.bundle"];
+                          stringByAppendingPathComponent:@"modules/com.0x82.urbanairship/UAPushLocalization.bundle"];
         
         self.localizationBundle = [NSBundle bundleWithPath:path];
     
@@ -49,7 +49,7 @@ SINGLETON_IMPLEMENTATION(UAPushUI)
 - (UIViewController *)apnsSettingsViewController {
     if (_apnsSettingsViewController == nil) {
         UIViewController *root = [[[UAPushSettingsViewController alloc]
-                                   initWithNibName:@"UAPushSettingsView"
+                                   initWithNibName:@"modules/com.0x82.urbanairship/UAPushSettingsView"
                                    bundle:nil] autorelease];
         _apnsSettingsViewController = [[UINavigationController alloc] initWithRootViewController:root];
     }
@@ -59,7 +59,7 @@ SINGLETON_IMPLEMENTATION(UAPushUI)
 - (UIViewController *)tokenSettingsViewController {
     if (_tokenSettingsViewController == nil) {
         UIViewController *root = [[[UAPushMoreSettingsViewController alloc]
-                                   initWithNibName:@"UAPushMoreSettingsView"
+                                   initWithNibName:@"modules/com.0x82.urbanairship/UAPushMoreSettingsView"
                                    bundle:nil] autorelease];
         _tokenSettingsViewController = [[UINavigationController alloc] initWithRootViewController:root];
     }
