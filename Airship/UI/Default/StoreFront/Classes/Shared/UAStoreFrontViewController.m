@@ -79,8 +79,8 @@ UIKIT_EXTERN NSString* const UIApplicationDidBecomeActiveNotification __attribut
 }
 
 - (void)initNibNames {
-    productDetailViewNibName = [@"UAProductDetail" retain];
-    productDetailViewClassName = [@"UAProductDetailViewController" retain];
+    productDetailViewNibName = [@"modules/com.0x82.urbanairship/UAProductDetail" retain];
+    productDetailViewClassName = [@"modules/com.0x82.urbanairship/UAProductDetailViewController" retain];
 }
 
 - (void)viewDidLoad {
