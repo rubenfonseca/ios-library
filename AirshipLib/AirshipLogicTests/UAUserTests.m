@@ -11,7 +11,7 @@
  this list of conditions and the following disclaimer in the documentation
  and/or other materials provided withthe distribution.
  
- THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL URBAN AIRSHIP INC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
@@ -23,29 +23,39 @@
  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
+#import <OCMock/OCMock.h>
+#import <OCMock/OCMConstraint.h>
 
-/**
- * Autogenerate a set of tags with
- * the following flags
- */
-typedef enum {
-    UATagTypeTimeZone             = 1 << 0, /** Full Time Zone: "America/Los_Angeles" */
-    UATagTypeTimeZoneAbbreviation = 1 << 1, /** Abbreviated Time Zone: "PST" Note: Containst DST info and may abbreviations may conflict with other time zones. */
-    UATagTypeLanguage             = 1 << 2, /** Language Code, with prefix: "language_en" */
-    UATagTypeCountry              = 1 << 3, /** Country Code, with prefix: "country_us" */
-    UATagTypeDeviceType           = 1 << 4  /** Device type: iPhone, iPad or iPod */
-} UATagType;
+#import "UAUser.h"
+#import "UAUser+Internal.h"
+#import "UAPush.h"
+#import "UAPush+Internal.h"
 
-@interface UATagUtils : NSObject {
 
+@interface UAUserTests : SenTestCase
+
+@end
+
+
+@implementation UAUserTests
+
+- (void)testSetDeviceTokenUpdatedTokenDidChange {
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:kLastDeviceTokenKey];
+    [[UAUser defaultUser] setDeviceToken:@"cats"];
+    STAssertTrue([UAUser defaultUser].deviceTokenHasChanged, @"deviceTokenHasChanged should equal YES");
+    [[NSUserDefaults standardUserDefaults] setValue:deviceToken forKey:kLastDeviceTokenKey];
 }
 
-/**
- * Creates an autoreleased NSArray containing tags specified in the
- * tags parameter, a bit field accepting UATagType flags.
- * @param tags to create
- */
-+ (NSArray *)createTags:(UATagType) tags;
+- (void)testKVONotificationsForUAPushDeviceToken {
+    [UAPush shared].deviceToken = nil;
+    [[UAUser defaultUser] listenForDeviceTokenReg];
+    id mockUser = [OCMockObject partialMockForObject:[UAUser defaultUser]];
+    [[mockUser expect] cancelListeningForDeviceToken];
+    [[mockUser expect] updateDefaultDeviceToken];
+    [UAPush shared].deviceToken = @"cats";
+    [mockUser verify];
+}
+
 
 @end
